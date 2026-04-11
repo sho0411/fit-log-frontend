@@ -50,8 +50,15 @@ pnpm exec tsc --noEmit      # 型チェック
 |---------|------|
 | `main` | 本番リリース |
 | `develop` | 開発統合 |
-| `feature/xxx` | 機能開発 |
-| `hotfix/xxx` | 本番緊急修正 |
+| `feature/xxx` | 機能開発（develop から切る） |
+| `hotfix/xxx` | 本番緊急修正（main から切る） |
+
+### hotfix ブランチの運用手順
+
+1. `main` から `hotfix/xxx` を切る
+2. 修正をコミットする
+3. `main` に PR を出してマージする
+4. `develop` にも同じ修正を PR を出してマージする
 
 ## コミット規約
 
@@ -65,4 +72,6 @@ Conventional Commits に従う:
 | `chore` | 雑務・設定変更 |
 | `ci` | CI/CD |
 | `refactor` | リファクタリング |
+| `style` | コードフォーマット・スタイル修正（ロジック変更なし） |
+| `perf` | パフォーマンス改善 |
 | `test` | テスト |
