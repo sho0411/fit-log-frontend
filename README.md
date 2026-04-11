@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# fit-log フロントエンド
 
-## Getting Started
+体重・食事・運動を記録して目標を達成するアプリ「fit-log」のフロントエンドです。
 
-First, run the development server:
+## 技術スタック
+
+- **フレームワーク**: Next.js 16
+- **言語**: TypeScript
+- **スタイル**: CSS Modules
+- **パッケージマネージャー**: pnpm
+
+## 関連リポジトリ
+
+- バックエンド: [fit-log-backend](https://github.com/sho0411/fit-log-backend)
+
+## 必要な環境
+
+- Node.js 22以上
+- pnpm 10以上
+
+## セットアップ
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# リポジトリをクローン
+git clone https://github.com/sho0411/fit-log-frontend.git
+cd fit-log-frontend
+
+# 依存パッケージをインストール
+pnpm install
+
+# 環境変数ファイルを作成
+cp .env.example .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 開発コマンド
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# 開発サーバー起動
+pnpm dev
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# ビルド
+pnpm build
 
-## Learn More
+# 本番サーバー起動
+pnpm start
 
-To learn more about Next.js, take a look at the following resources:
+# Lint
+pnpm lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 環境変数
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| 変数名 | 説明 |
+|-------|------|
+| `NEXT_PUBLIC_API_URL` | バックエンドAPIのURL |
 
-## Deploy on Vercel
+## ブランチ運用
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| ブランチ | 用途 |
+|---------|------|
+| `main` | 本番リリース用 |
+| `develop` | 開発統合ブランチ |
+| `feature/xxx` | 機能開発用 |
+| `hotfix/xxx` | 本番緊急修正用 |
