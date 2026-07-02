@@ -1,0 +1,221 @@
+.page {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* ヘッダー（日付＋タイトル） */
+.header {
+  margin-bottom: 20px;
+}
+
+.date {
+  font-size: 18px;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* タブ */
+.tabs {
+  display: flex;
+  gap: 32px;
+  border-bottom: 1px solid #d1d5db;
+  margin-bottom: 20px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  font-size: 16px;
+  color: #6b7280;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.tabActive {
+  color: #1d4ed8;
+  font-weight: 600;
+  border-bottom-color: #1d4ed8;
+}
+
+/* カード群 */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px 28px;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #eef0f2;
+}
+
+/* ラベル＋入力の行 */
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.label {
+  width: 112px;
+  flex-shrink: 0;
+  font-size: 16px;
+  color: #6b7280;
+  padding-top: 6px;
+}
+
+.unit {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* 日付入力 */
+.dateInputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.numInput,
+.numInputSm,
+.textInput,
+.textInputSm {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 9px 12px;
+  font-size: 15px;
+  color: #1f2937;
+}
+
+.numInput {
+  width: 90px;
+}
+
+.numInputSm {
+  width: 68px;
+}
+
+/* セレクト（ダイエットモードなど）はクリックで開くプルダウン */
+select.textInputSm {
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.textInput {
+  width: 280px;
+}
+
+.textInputSm {
+  width: 120px;
+}
+
+.inlineField {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 体重 */
+.weightControl {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.weightValue {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.spinner {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.spinnerBtn {
+  width: 28px;
+  height: 20px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 11px;
+  line-height: 1;
+  color: #6b7280;
+}
+
+.spinnerBtn:hover {
+  background: #f3f4f6;
+}
+
+/* textarea */
+.textarea {
+  flex: 1;
+  min-height: 64px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 15px;
+  color: #1f2937;
+  font-family: inherit;
+  resize: vertical;
+}
+
+/* 操作ボタン */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.cancelBtn,
+.saveBtn {
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.cancelBtn {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #374151;
+}
+
+.saveBtn {
+  background: #1d4ed8;
+  border: 1px solid #1d4ed8;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.saveBtn:hover {
+  background: #1a44bd;
+}
+
+.placeholder {
+  color: #6b7280;
+  font-size: 14px;
+}

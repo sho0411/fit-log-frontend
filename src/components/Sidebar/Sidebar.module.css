@@ -1,0 +1,92 @@
+.sidebar {
+  width: 272px;
+  flex-shrink: 0;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* 上部：ロゴ（左）＋ユーザー（右） */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 8px 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 700;
+  color: #1f2937;
+  flex-shrink: 0;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #eaf0fd;
+  color: #1d4ed8;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.userName {
+  font-size: 15px;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ナビ */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.navItem {
+  padding: 11px 14px;
+  border-radius: 8px;
+  font-size: 20px;
+  color: #6b7280;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.navItem:hover {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.active {
+  background: #eaf0fd;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.active:hover {
+  background: #eaf0fd;
+  color: #1d4ed8;
+}
