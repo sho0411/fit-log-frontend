@@ -15,30 +15,34 @@ type MealHistoryRow = {
 // TODO: API接続後は GET /records から取得する（今はモック値）
 const MEAL_HISTORY: MealHistoryRow[] = [
   { day: 1, menu: "鶏むね肉のサラダ、玄米、味噌汁", calories: 1950 },
-  { day: 2, menu: "オートミール、サバの塩焼き、豆腐", calories: 1800 },
+  { day: 2, menu: "オートミール、サバの塩焼き、豆腐", calories: 1600 },
   { day: 3, menu: "パスタ、サラダチキン、プロテイン", calories: 2100 },
   { day: 4, menu: "焼き魚定食、ヨーグルト、バナナ", calories: 2000 },
   { day: 5, menu: null, calories: null },
 ];
 
-type Rating = "good" | "ok" | "warn";
+type Rating = "excellent" | "good" | "warn";
 
-const RATINGS = ["good", "ok", "warn"] as const;
+const RATINGS = ["excellent", "good", "warn"] as const;
 
-const RATING_MARK: Record<Rating, string> = { good: "◎", ok: "◯", warn: "△" };
+const RATING_MARK: Record<Rating, string> = {
+  excellent: "◎",
+  good: "◯",
+  warn: "△",
+};
 
 // 評価マークの色クラス
 const RATING_CLASS: Record<Rating, string> = {
+  excellent: styles.ratingExcellent,
   good: styles.ratingGood,
-  ok: styles.ratingOk,
   warn: styles.ratingWarn,
 };
 
 // 評価しきい値（目標カロリーに対する%）
 // ◎は両モード共通で95〜105%。◯の範囲だけモードで異なる
 // TODO: しきい値の仕様は再検討予定（将来: 消費カロリーからの目標自動算出、減量のノーマル/ハード選択）
-const GOOD_RANGE = { min: 95, max: 105 } as const;
-const OK_RANGE = {
+const EXCELLENT_RANGE = { min: 95, max: 105 } as const;
+const GOOD_RANGE = {
   loss: { min: 85, max: 110 },
   gain: { min: 90, max: 115 },
 } as const;
@@ -66,24 +70,24 @@ export default function MealsPage() {
     setMonth(moved.getMonth() + 1);
   };
 
+  const goodRange = GOOD_RANGE[dietMode];
+
   // 摂取カロリーが目標の何%かで評価を返す（◎は共通、◯の範囲はモードで異なる）
   const rateMeal = (calories: number): Rating => {
     const percent = (calories / dailyCalorieGoal) * 100;
-    if (percent >= GOOD_RANGE.min && percent <= GOOD_RANGE.max) return "good";
-    const { min, max } = OK_RANGE[dietMode];
-    if (percent >= min && percent <= max) return "ok";
+    if (percent >= EXCELLENT_RANGE.min && percent <= EXCELLENT_RANGE.max)
+      return "excellent";
+    if (percent >= goodRange.min && percent <= goodRange.max) return "good";
     return "warn";
   };
 
   // 凡例はユーザーが分かりやすいよう、%しきい値をkcalに換算して表示する
   const kcalOf = (percent: number) =>
     Math.round((dailyCalorieGoal * percent) / 100).toLocaleString();
-
-  const okRange = OK_RANGE[dietMode];
   const legendLabel: Record<Rating, string> = {
-    good: `${kcalOf(GOOD_RANGE.min)}〜${kcalOf(GOOD_RANGE.max)} kcal`,
-    ok: `${kcalOf(okRange.min)}〜${kcalOf(GOOD_RANGE.min)} / ${kcalOf(GOOD_RANGE.max)}〜${kcalOf(okRange.max)} kcal`,
-    warn: `${kcalOf(okRange.min)} kcal未満 / ${kcalOf(okRange.max)} kcal超`,
+    excellent: `${kcalOf(EXCELLENT_RANGE.min)}〜${kcalOf(EXCELLENT_RANGE.max)} kcal`,
+    good: `${kcalOf(goodRange.min)}〜${kcalOf(EXCELLENT_RANGE.min)} / ${kcalOf(EXCELLENT_RANGE.max)}〜${kcalOf(goodRange.max)} kcal`,
+    warn: `${kcalOf(goodRange.min)} kcal未満 / ${kcalOf(goodRange.max)} kcal超`,
   };
 
   const weekdayOf = (day: number) =>
@@ -194,7 +198,7 @@ export default function MealsPage() {
           </thead>
           <tbody>
             {MEAL_HISTORY.map((row) => {
-              // 未記録の日はカロリー以降を「未記録」だけにする
+              // 未記録の日はメニュー列に「未記録」を表示し、残りの列は空にする
               if (row.calories === null) {
                 return (
                   <tr key={row.day} className={styles.tr}>
@@ -211,7 +215,7 @@ export default function MealsPage() {
                 );
               }
 
-              const diff = row.calories - dailyCalorieGoal;
+              const calorieDiff = row.calories - dailyCalorieGoal;
               const rating = rateMeal(row.calories);
 
               return (
@@ -232,11 +236,11 @@ export default function MealsPage() {
                   </td>
                   <td
                     className={`${styles.td} ${
-                      diff > 0 ? styles.diffOver : styles.diffUnder
+                      calorieDiff > 0 ? styles.diffOver : styles.diffUnder
                     }`}
                   >
-                    {diff > 0 ? "+" : diff === 0 ? "±" : ""}
-                    {diff} kcal
+                    {calorieDiff > 0 ? "+" : calorieDiff === 0 ? "±" : ""}
+                    {calorieDiff} kcal
                   </td>
                 </tr>
               );
