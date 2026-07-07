@@ -126,19 +126,19 @@ export default function MealsPage() {
       {/* サマリーカード */}
       <div className={styles.summaryCards}>
         <section className={styles.summaryCard}>
-          <p className={styles.summaryLabel}>1日の目標カロリー</p>
+          <p className={styles.summaryLabel}>1日の目標摂取カロリー</p>
           <p className={styles.summaryValue}>
             {dailyCalorieGoal.toLocaleString()} kcal
           </p>
         </section>
         <section className={styles.summaryCard}>
-          <p className={styles.summaryLabel}>今日のカロリー</p>
+          <p className={styles.summaryLabel}>今日の摂取カロリー</p>
           <p className={`${styles.summaryValue} ${styles.summaryValuePrimary}`}>
             {todayCalories.toLocaleString()} kcal
           </p>
         </section>
         <section className={styles.summaryCard}>
-          <p className={styles.summaryLabel}>今月の1日平均カロリー</p>
+          <p className={styles.summaryLabel}>今月の1日平均摂取カロリー</p>
           <p className={styles.summaryValue}>
             {monthlyAverageCalories.toLocaleString()} kcal
           </p>
@@ -193,7 +193,7 @@ export default function MealsPage() {
               <th className={styles.th}>メニュー</th>
               <th className={styles.th}>摂取カロリー</th>
               <th className={styles.th}>評価</th>
-              <th className={styles.th}>目標との差</th>
+              <th className={styles.th}>目標摂取カロリーとの差</th>
             </tr>
           </thead>
           <tbody>
