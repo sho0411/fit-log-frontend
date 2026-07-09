@@ -1,0 +1,147 @@
+.page {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* ヘッダー（日付＋タイトル） */
+.header {
+  margin-bottom: 20px;
+}
+
+.date {
+  font-size: 18px;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* サマリーカード */
+.summaryCards {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.summaryCard {
+  flex: 1;
+  background: #f7f7f5;
+  border-radius: 12px;
+  padding: 18px 22px;
+  text-align: center;
+}
+
+.summaryLabel {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.summaryValue {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1.2;
+}
+
+.summaryValuePrimary {
+  color: #1d4ed8;
+}
+
+.summaryValueSuccess {
+  color: #15803d;
+}
+
+.summaryValueStreak {
+  color: #d97706;
+}
+
+/* 履歴カード */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px 28px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* 月ページャー（‹ 2026年7月 ›） */
+.monthPager {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagerBtn {
+  width: 26px;
+  height: 26px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.pagerBtn:hover {
+  background: #f3f4f6;
+}
+
+.monthLabel {
+  font-size: 14px;
+  color: #1f2937;
+}
+
+/* 履歴テーブル */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.th {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+  background: #f7f7f5;
+  padding: 10px 12px;
+}
+
+.tr {
+  border-bottom: 1px solid #eef0f2;
+}
+
+.td {
+  padding: 14px 12px;
+  font-size: 14px;
+  color: #1f2937;
+  text-align: center;
+}
+
+.menu {
+  font-weight: 700;
+}
+
+.memo {
+  color: #6b7280;
+}
+
+.noRecord {
+  color: #9ca3af;
+}
