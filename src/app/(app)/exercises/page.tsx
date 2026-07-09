@@ -71,7 +71,7 @@ export default function ExercisesPage() {
           </p>
         </section>
         <section className={styles.summaryCard}>
-          <p className={styles.summaryLabel}>今月の達成率</p>
+          <p className={styles.summaryLabel}>今月の目標達成率</p>
           <p className={`${styles.summaryValue} ${styles.summaryValueSuccess}`}>
             {achievementRate}%
           </p>
