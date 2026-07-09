@@ -65,7 +65,7 @@ export default function ExercisesPage() {
           <p className={styles.summaryValue}>{monthlyExerciseGoal}日</p>
         </section>
         <section className={styles.summaryCard}>
-          <p className={styles.summaryLabel}>今月の実績運動日数</p>
+          <p className={styles.summaryLabel}>今月の運動日数</p>
           <p className={`${styles.summaryValue} ${styles.summaryValuePrimary}`}>
             {actualDays}日
           </p>
