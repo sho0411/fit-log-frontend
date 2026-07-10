@@ -19,6 +19,8 @@ const MEAL_HISTORY: MealHistoryRow[] = [
   { day: 3, menu: "パスタ、サラダチキン、プロテイン", calories: 2100 },
   { day: 4, menu: "焼き魚定食、ヨーグルト、バナナ", calories: 2000 },
   { day: 5, menu: null, calories: null },
+  { day: 6, menu: "焼肉食べ放題", calories: null },
+  { day: 7, menu: null, calories: 1750 },
 ];
 
 type Rating = "excellent" | "good" | "warn";
@@ -198,49 +200,52 @@ export default function MealsPage() {
           </thead>
           <tbody>
             {MEAL_HISTORY.map((row) => {
-              // 未記録の日はメニュー列に「未記録」を表示し、残りの列は空にする
-              if (row.calories === null) {
-                return (
-                  <tr key={row.day} className={styles.tr}>
-                    <td className={styles.td}>
-                      {month}月{row.day}日（{weekdayOf(row.day)}）
-                    </td>
-                    <td className={`${styles.td} ${styles.noRecord}`}>
-                      未記録
-                    </td>
-                    <td className={styles.td} />
-                    <td className={styles.td} />
-                    <td className={styles.td} />
-                  </tr>
-                );
-              }
-
-              const calorieDiff = row.calories - dailyCalorieGoal;
-              const rating = rateMeal(row.calories);
+              // カロリーは記録の本体なので無ければ「未記録」、メニューは任意項目なので無ければ「—」。
+              // 評価と目標との差はカロリーから導出するため、カロリー未記録の日は空欄にする
+              const calorieDiff =
+                row.calories !== null ? row.calories - dailyCalorieGoal : null;
+              const rating =
+                row.calories !== null ? rateMeal(row.calories) : null;
+              const diffClass =
+                calorieDiff === null
+                  ? ""
+                  : calorieDiff > 0
+                    ? styles.diffOver
+                    : styles.diffUnder;
 
               return (
                 <tr key={row.day} className={styles.tr}>
                   <td className={styles.td}>
                     {month}月{row.day}日（{weekdayOf(row.day)}）
                   </td>
-                  <td className={styles.td}>{row.menu}</td>
-                  <td className={`${styles.td} ${styles.calories}`}>
-                    {row.calories.toLocaleString()} kcal
-                  </td>
-                  <td className={styles.td}>
-                    <span
-                      className={`${styles.ratingMark} ${RATING_CLASS[rating]}`}
-                    >
-                      {RATING_MARK[rating]}
-                    </span>
+                  <td
+                    className={`${styles.td} ${row.menu === null ? styles.dash : ""}`}
+                  >
+                    {row.menu ?? "—"}
                   </td>
                   <td
-                    className={`${styles.td} ${
-                      calorieDiff > 0 ? styles.diffOver : styles.diffUnder
-                    }`}
+                    className={`${styles.td} ${row.calories === null ? styles.noRecord : styles.calories}`}
                   >
-                    {calorieDiff > 0 ? "+" : calorieDiff === 0 ? "±" : ""}
-                    {calorieDiff} kcal
+                    {row.calories !== null
+                      ? `${row.calories.toLocaleString()} kcal`
+                      : "未記録"}
+                  </td>
+                  <td className={styles.td}>
+                    {rating !== null && (
+                      <span
+                        className={`${styles.ratingMark} ${RATING_CLASS[rating]}`}
+                      >
+                        {RATING_MARK[rating]}
+                      </span>
+                    )}
+                  </td>
+                  <td className={`${styles.td} ${diffClass}`}>
+                    {calorieDiff !== null && (
+                      <>
+                        {calorieDiff > 0 ? "+" : calorieDiff === 0 ? "±" : ""}
+                        {calorieDiff} kcal
+                      </>
+                    )}
                   </td>
                 </tr>
               );

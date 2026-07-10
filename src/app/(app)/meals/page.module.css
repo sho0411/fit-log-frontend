@@ -72,6 +72,7 @@
   font-size: 22px;
   font-weight: 700;
   color: #1f2937;
+  line-height: 1.2;
 }
 
 .summaryValuePrimary {
@@ -198,6 +199,11 @@
 
 .noRecord {
   color: #9ca3af;
+}
+
+/* 任意項目（メニュー）が未入力のときの「—」。運動管理のメモ欄と同じ色 */
+.dash {
+  color: #6b7280;
 }
 
 .diffOver {
