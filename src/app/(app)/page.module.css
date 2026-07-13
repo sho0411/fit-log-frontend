@@ -1,0 +1,214 @@
+.page {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* ヘッダー（日付＋タイトル） */
+.header {
+  margin-bottom: 12px;
+}
+
+.date {
+  font-size: 18px;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* 現在の体重 */
+.currentWeight {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.currentWeightValue {
+  font-size: 40px;
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+.currentWeightUnit {
+  font-size: 18px;
+  color: #6b7280;
+}
+
+.weightChange {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* 体重の増減（減量アプリなので減=緑・増=赤） */
+.up {
+  color: #dc2626;
+}
+
+.down {
+  color: #15803d;
+}
+
+/* サマリーカード */
+.summaryCards {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.summaryCard {
+  flex: 1;
+  background: #f7f7f5;
+  border-radius: 12px;
+  padding: 18px 22px;
+  text-align: center;
+}
+
+.summaryLabel {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.summaryValue {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1.2;
+}
+
+/* 履歴カード */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px 28px;
+}
+
+/* カード同士の間隔 */
+.card + .card {
+  margin-top: 16px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* 月ページャー（‹ 2026年7月 ›） */
+.pager {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagerBtn {
+  width: 26px;
+  height: 26px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.pagerBtn:hover {
+  background: #f3f4f6;
+}
+
+.pagerLabel {
+  font-size: 14px;
+  color: #1f2937;
+}
+
+/* 履歴 / グラフ タブ */
+.subTabs {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid #eef0f2;
+  margin-bottom: 12px;
+}
+
+.subTab {
+  background: none;
+  border: none;
+  padding: 6px 4px;
+  font-size: 14px;
+  color: #6b7280;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.subTabActive {
+  color: #1d4ed8;
+  font-weight: 600;
+  border-bottom-color: #1d4ed8;
+}
+
+/* 履歴テーブル */
+/* 行数が多くてもカードが伸びないよう、テーブル部分だけスクロールさせる */
+.tableScroll {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.th {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+  background: #f7f7f5;
+  padding: 10px 12px;
+  /* スクロールしても列見出しが上に張り付いて見え続けるようにする */
+  position: sticky;
+  top: 0;
+}
+
+.tr {
+  border-bottom: 1px solid #eef0f2;
+}
+
+.td {
+  padding: 14px 12px;
+  font-size: 14px;
+  color: #1f2937;
+  text-align: center;
+}
+
+.weight {
+  font-weight: 700;
+}
+
+.noRecord {
+  color: #9ca3af;
+}
+
+.remaining {
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+/* 目標到達・超過（減量アプリなので達成=緑） */
+.achieved {
+  color: #15803d;
+  font-weight: 600;
+}
