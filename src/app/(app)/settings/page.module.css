@@ -1,0 +1,255 @@
+.page {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* ヘッダー（日付＋タイトル） */
+.header {
+  margin-bottom: 20px;
+}
+
+.date {
+  font-size: 18px;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* カード */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px 28px;
+}
+
+.card + .card {
+  margin-top: 16px;
+}
+
+/* カード見出しの行（タイトル＋右端に編集ボタン等） */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #eef0f2;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* ラベル＋入力の行 */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.label {
+  width: 112px;
+  flex-shrink: 0;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.unit {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* 入力欄 */
+.textInput,
+.textInputSm,
+.numInput,
+.numInputSm {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 9px 12px;
+  font-size: 15px;
+  color: #1f2937;
+}
+
+.textInput {
+  width: 280px;
+}
+
+.textInputSm {
+  width: 120px;
+}
+
+.numInput {
+  width: 90px;
+}
+
+.numInputSm {
+  width: 68px;
+}
+
+/* 性別ラジオ */
+.radioGroup {
+  display: flex;
+  gap: 20px;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  color: #1f2937;
+  cursor: pointer;
+}
+
+/* 生年月日 */
+.dateInputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.inlineField {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 操作ボタン */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid #eef0f2;
+}
+
+.cancelBtn,
+.saveBtn {
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.cancelBtn {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #374151;
+}
+
+.saveBtn {
+  background: #1d4ed8;
+  border: 1px solid #1d4ed8;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.saveBtn:hover {
+  background: #1a44bd;
+}
+
+/* 表示モードの値（基本情報・アカウント共通） */
+.fieldValue {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2937;
+  /* ラベルとの間隔を入力欄より広めに取る */
+  margin-left: 24px;
+}
+
+.changeBtn {
+  margin-left: auto;
+  padding: 6px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #374151;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.changeBtn:hover {
+  background: #f3f4f6;
+}
+
+/* インライン編集中の入力欄（accountValue と同じ位置に出す） */
+.accountInput {
+  margin-left: 24px;
+  width: 280px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 9px 12px;
+  font-size: 15px;
+  color: #1f2937;
+}
+
+/* パスワード編集時の3段入力 */
+.passwordFields {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* アカウント削除（破壊的操作なので赤で警告する） */
+.dangerCard {
+  border: 1px solid #fca5a5;
+}
+
+.dangerTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #dc2626;
+  margin-bottom: 10px;
+}
+
+.dangerText {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+
+.deleteBtn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.deleteBtn:hover {
+  background: #b91c1c;
+}
+/* 編集中のキャンセル・保存ボタン */
+.rowActions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.saveSmBtn {
+  padding: 6px 16px;
+  border: 1px solid #1d4ed8;
+  border-radius: 6px;
+  background: #1d4ed8;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.saveSmBtn:hover {
+  background: #1a44bd;
+}
