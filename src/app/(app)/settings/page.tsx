@@ -307,7 +307,7 @@ export default function SettingsPage() {
                   className={styles.saveSmBtn}
                   onClick={saveEmail}
                 >
-                  保存
+                  保存する
                 </button>
               </div>
             </>
@@ -368,7 +368,7 @@ export default function SettingsPage() {
                   className={styles.saveSmBtn}
                   onClick={savePassword}
                 >
-                  保存
+                  保存する
                 </button>
               </div>
             </>
