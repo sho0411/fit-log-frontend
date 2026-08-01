@@ -1,0 +1,41 @@
+/* 画面全体。(app)のmainと同じグレー背景で、カードを中央に置く */
+.layout {
+  min-height: 100vh;
+  background: #e8eaed;
+  display: flex;
+  justify-content: center;
+  /* 上寄せ固定。カードの高さが画面ごとに違っても（特に登録ウィザードのステップ切替）
+     ロゴとカード上端の位置が動かないようにする */
+  align-items: flex-start;
+  padding: 48px 24px;
+}
+
+/* TODO: テーマ設計（カラーのCSS変数化）のタイミングで、認証画面の配色と
+   レイアウト（背景のブランドカラー化・カード幅・見出し構成）を再検討する */
+.card {
+  width: 100%;
+  max-width: 720px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 40px 48px;
+}
+
+/* ロゴ＋キャッチコピー */
+.header {
+  text-align: center;
+  padding-bottom: 24px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.logo {
+  font-size: 34px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 14px;
+}
+
+.tagline {
+  font-size: 16px;
+  color: #6b7280;
+}
