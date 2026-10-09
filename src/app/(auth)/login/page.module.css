@@ -1,0 +1,88 @@
+/* フォーム全体（カードより少し狭い幅で中央に置く） */
+.login {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+/* ラベルを上に置く縦積みの入力欄 */
+.field {
+  margin-bottom: 16px;
+}
+
+.label {
+  display: block;
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 15px;
+  color: #1f2937;
+}
+
+.forgotLink {
+  text-align: center;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.forgotLink a {
+  color: #1d4ed8;
+}
+
+.loginBtn {
+  width: 100%;
+  padding: 11px 0;
+  border: 1px solid #1d4ed8;
+  border-radius: 8px;
+  background: #1d4ed8;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.loginBtn:hover {
+  background: #1a44bd;
+}
+
+/* 「または」の区切り（左右に線を引く） */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #9ca3af;
+  font-size: 13px;
+  margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #d1d5db;
+}
+
+.registerLink {
+  text-align: center;
+  font-size: 14px;
+  color: #374151;
+}
+
+.registerLink a {
+  color: #1d4ed8;
+}
